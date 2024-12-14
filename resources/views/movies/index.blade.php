@@ -2,7 +2,7 @@
     <h1 class="text-center mb-4">Movies</h1>
     <div class="row ">
         @foreach ($movies as $movie)
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-5">
             <div class="card h-100 shadow-lg">
                 <div class="card-header bg-primary text-white text-center" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
                     <h4 class="card-title">{{ $movie->title }}</h4>
