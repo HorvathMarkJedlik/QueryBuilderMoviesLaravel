@@ -48,7 +48,11 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $movie = DB::table('movies')->where('id', $id)->first();
+        if(!$movie){
+            abort(404);
+        }
+        return view('movies.show', ['movie' => $movie]);
     }
 
     /**

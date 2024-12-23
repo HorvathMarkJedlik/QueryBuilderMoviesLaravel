@@ -21,6 +21,11 @@
                         <span class="badge bg-warning text-dark fs-7">{{ $movie->rating }}</span>
                     </li>
                 </ul>
+
+                <div class="card-footer mt-auto text-center ">
+                    <a class="btn btn-primary" href="/movies/{{ $movie->id }}">Details</a>
+                </div>
+
             </div>
         </div>        
         @endforeach
