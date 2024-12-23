@@ -95,4 +95,15 @@ class MovieController extends Controller
         DB::table('movies')->delete($id);
         return redirect()->route('movies.index')->with('success', 'Movie deleted successfully');
     }
+
+    public function search(){
+        return view('movies.search');
+    }
+
+    public function processSearch(Request $request){
+        $movies = DB::table('movies')
+            ->where('title', 'like', '%' . $request->title . '%')
+            ->get();
+        return view('movies.index', ['movies' => $movies]);
+    }
 }

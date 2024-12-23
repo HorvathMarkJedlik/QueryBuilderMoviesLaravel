@@ -1,7 +1,6 @@
 <x-layout>
     <div class="container mt-5">
 
-        <!-- Movie Title -->
         <h1 class="display-4 text-center mb-4 text-primary">{{$movie->title}}</h1>
 
         <div class="row justify-content-center">
