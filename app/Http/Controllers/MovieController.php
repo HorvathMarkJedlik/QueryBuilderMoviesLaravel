@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Requests\StoreMovieRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,9 +29,18 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMovieRequest $request)
     {
-        //
+        $validated = $request->validated();
+        DB::table('movies')->insert([
+            'title' => $validated['title'],
+            'director' => $validated['director'],
+            'release_year' => $validated['release_year'],
+            'rating' => $validated['rating'],
+            'created_at' => now(),
+            'updated_at' => now()
+
+        ]);
     }
 
     /**

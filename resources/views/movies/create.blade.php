@@ -28,7 +28,7 @@
     
         <div class="mb-3">
             <label class="form-label" for="rating">Rating</label>
-            <input type="number" step="0.1" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating" placeholder="Enter movie rating (e.g., 8.5)" value="{{ old('rating') }}">
+            <input type="number" step="0.1" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating" placeholder="Enter movie rating (0-10)" value="{{ old('rating') }}">
             @error('rating')
                 <div class="invalid-feedback">{{$message}}</div>
             @enderror

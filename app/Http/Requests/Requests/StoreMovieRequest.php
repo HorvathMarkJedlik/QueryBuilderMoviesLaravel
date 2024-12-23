@@ -25,7 +25,7 @@ class StoreMovieRequest extends FormRequest
             'title' => 'required|string|max:255',
             'director' => 'required|string|max:255',
             'release_year' => 'required|integer|max:'.date('Y'),
-            'rating' => 'required|numeric|min:0',
+            'rating' => 'required|numeric|min:0|max:10',
 
         ];
     }
