@@ -8,7 +8,7 @@
     <title>Movies</title>
 </head>
 <body>
-    <div class="continer">
+    <div class="container">
         <x-nav></x-nav>
 
         {{$slot}}

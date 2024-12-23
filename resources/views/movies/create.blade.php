@@ -1,0 +1,42 @@
+<x-layout>
+    <h1 class="text-center">Add new movie</h1>
+    <form action="{{route('movies.store')}}" method="POST" class="p-4 rounded shadow bg-light">
+        @csrf
+        <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter movie title" value="{{ old('title') }}">
+            @error('title')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+        </div>
+    
+        <div class="mb-3">
+            <label class="form-label" for="director">Director</label>
+            <input type="text" class="form-control @error('director') is-invalid @enderror" id="director" name="director" placeholder="Enter director's name" value="{{ old('director') }}">
+            @error('director')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+        </div>
+    
+        <div class="mb-3">
+            <label class="form-label" for="release_year">Release Year</label>
+            <input type="number" class="form-control @error('release_year') is-invalid @enderror" id="release_year" name="release_year" placeholder="Enter release year" value="{{ old('release_year') }}">
+            @error('release_year')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+        </div>
+    
+        <div class="mb-3">
+            <label class="form-label" for="rating">Rating</label>
+            <input type="number" step="0.1" class="form-control @error('rating') is-invalid @enderror" id="rating" name="rating" placeholder="Enter movie rating (e.g., 8.5)" value="{{ old('rating') }}">
+            @error('rating')
+                <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+        </div>
+    
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg px-5">Submit</button>
+        </div>
+    </form>
+    
+</x-layout>
