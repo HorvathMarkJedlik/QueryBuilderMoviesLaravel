@@ -9,7 +9,7 @@
             <a class="nav-link"  href="{{route('movies.index')}}">Home</a>
           </li>
           <li class="nav-item">
-            {{-- <a class="nav-link" href="{{route('books.create')}}">New book</a> --}}
+            <a class="nav-link" href="{{route('movies.create')}}">New movie</a>
           </li>
           <li class="nav-item">
             {{-- <a class="nav-link" href="{{route('books.search')}}">Search</a> --}}
