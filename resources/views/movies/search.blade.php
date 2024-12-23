@@ -7,7 +7,6 @@
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title text-center mb-4">Find Your Favorite Movie</h5>
-                        
                         <form method="POST" action="{{ route('movies.process.search') }}">
                             @csrf
                             
