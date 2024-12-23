@@ -60,15 +60,30 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $movie = DB::table('movies')->where('id', $id)->first();
+        if(!$movie){
+            abort(404);
+        }
+        return view('movies.edit', ['movie' => $movie]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreMovieRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+        DB::table('movies')
+            ->where('id', $id)
+            ->update([
+                'title' => $validated['title'],
+                'director' => $validated['director'],
+                'release_year' => $validated['release_year'],
+                'rating' => $validated['rating'],
+                'updated_at' => now(), 
+        ]);
+        return redirect()->route('movies.show', $id)->with('success', 'Movie updated successfully!');
+
     }
 
     /**
@@ -76,6 +91,7 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('movies')->delete($id);
+        return redirect()->route('movies.index')->with('success', 'Movie deleted successfully');
     }
 }
