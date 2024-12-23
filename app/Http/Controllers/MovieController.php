@@ -39,8 +39,9 @@ class MovieController extends Controller
             'rating' => $validated['rating'],
             'created_at' => now(),
             'updated_at' => now()
-
         ]);
+
+        return redirect()->route('movies.index')->with('success', 'Movie created successfully!');
     }
 
     /**
